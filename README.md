@@ -1,3 +1,3 @@
 # Shamil
 
-## Welcome back to Shamil project
+## Welcome back to Shamil My store project

@@ -1,11 +1,11 @@
 {
-    "name": "shamil",
-    "short_name": "shamil",
+    "name": "Shamil",
+    "short_name": "Shamil",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#2196f3",
+    "theme_color": "#2196f3",
+    "description": "Shamil My store.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

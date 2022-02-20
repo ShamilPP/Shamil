@@ -25,7 +25,7 @@ class _MyAllAppsState extends State<MyAllApps> {
           );
         },
         separatorBuilder: (context, index) {
-          return const Divider();
+          return const SizedBox(height: 15);
         },
       ),
     );
