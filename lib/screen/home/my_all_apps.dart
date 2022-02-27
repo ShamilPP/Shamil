@@ -143,6 +143,6 @@ class _AppRatingState extends State<AppRating> {
       ));
     }
     // Rating Text
-    _rating.add(Text(" ( "+rating.toString()+" Rating)"));
+    _rating.add(Text(" ( " + rating.toString() + " Rating)"));
   }
 }

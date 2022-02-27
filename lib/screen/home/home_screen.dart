@@ -75,7 +75,19 @@ class _HomeScreenState extends State<HomeScreen>
             onPressed: () {
               if (isSearching) {
                 setState(() {
-                  searchEditingController.clear();
+                  if (searchEditingController.text == "") {
+                    _controller.reverse();
+                    Future.delayed(const Duration(milliseconds: 400))
+                        .then((value) {
+                      setState(() {
+                        isSearching = false;
+                      });
+                    });
+                  } else {
+                    setState(() {
+                      searchEditingController.clear();
+                    });
+                  }
                 });
               } else {
                 setState(() {
@@ -125,9 +137,14 @@ class _HomeScreenState extends State<HomeScreen>
               child: ListView(
                 padding: EdgeInsets.zero,
                 children: [
-                  const DrawerHeader(
-                    decoration: BoxDecoration(color: Colors.lightBlue),
-                    child: Center(child: FlutterLogo(size: 70)),
+                  DrawerHeader(
+                    decoration: const BoxDecoration(color: Colors.black54),
+                    child: Center(
+                        child: Image.asset(
+                      "assets/icon.png",
+                      width: 70,
+                      height: 70,
+                    )),
                   ),
                   Container(
                     decoration: BoxDecoration(
@@ -146,6 +163,24 @@ class _HomeScreenState extends State<HomeScreen>
                     onTap: () {
                       ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text("Games not available")));
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    trailing: const Icon(CupertinoIcons.forward),
+                    title: const Text('Movies'),
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text("Movies not available")));
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    trailing: const Icon(CupertinoIcons.forward),
+                    title: const Text('Music'),
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text("Music not available")));
                       Navigator.of(context).pop();
                     },
                   ),
