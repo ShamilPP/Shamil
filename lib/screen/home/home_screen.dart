@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
+import 'package:shamil/provider/app_provider.dart';
 import 'package:shamil/screen/settings/settings_screen.dart';
+import 'package:shamil/widgets/check_update.dart';
 
 import 'my_all_apps.dart';
 
@@ -71,6 +74,11 @@ class _HomeScreenState extends State<HomeScreen>
               )
             : null,
         actions: [
+          Consumer<AppProvider>(
+              builder: (buildContext, provider, child) =>
+                  provider.currentVersion != provider.serverVersion
+                      ? const CheckUpdate()
+                      : const SizedBox()),
           IconButton(
             onPressed: () {
               if (isSearching) {
@@ -131,6 +139,8 @@ class _HomeScreenState extends State<HomeScreen>
                   }),
         ],
       ),
+
+      // Drawer
       drawer: isSearching
           ? null
           : Drawer(
@@ -191,7 +201,10 @@ class _HomeScreenState extends State<HomeScreen>
         decoration: const BoxDecoration(color: Colors.blue),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [SortBy(), MyAllApps()],
+          children: const [
+            SortBy(),
+            MyAllApps(),
+          ],
         ),
       ),
     );
